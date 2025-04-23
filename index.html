@@ -5,33 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>We Meditate Nova Scotia Tour</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .lang-switch:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .fr, .en {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Language Switcher -->
+  <div class="lang-switch" onclick="toggleLang()">FR / EN</div>
 
   <section class="hero">
     <div class="overlay"></div>
     <div class="content fade-in">
       <img src="devi.png" alt="Lotus Logo" class="logo" />
-      <h1>We Meditate Nova Scotia Tour</h1>
-      <p class="subtitle">Live music • Dance • Meditation</p>
-      <p class="tagline">A journey within, a path to inner peace</p>
+      <h1 class="en active">We Meditate Nova Scotia Tour</h1>
+      <h1 class="fr">Tournée « Nous Méditons » en Nouvelle-Écosse</h1>
+      <p class="subtitle en active">Live music • Dance • Meditation</p>
+      <p class="subtitle fr">Musique live • Danse • Méditation</p>
+      <p class="tagline en active">A journey within, a path to inner peace</p>
+      <p class="tagline fr">Un voyage intérieur, un chemin vers la paix</p>
     </div>
   </section>
 
   <section class="info fade-in">
-    <p>Discover a meditation that goes beyond the mind, emotions, and body — Sahaja Yoga helps you unlock a deeper connection with your true self, bringing peace and balance from within.</p>
+    <p class="en active">Discover a meditation that goes beyond the mind, emotions, and body — Sahaja Yoga helps you unlock a deeper connection with your true self, bringing peace and balance from within.</p>
+    <p class="fr">Découvrez une méditation qui va au-delà du mental, des émotions et du corps — Le Sahaja Yoga vous aide à vous connecter profondément à votre vrai soi, apportant paix et équilibre intérieur.</p>
   </section>
 
   <section class="schedule fade-in">
-    <h2>Tour Schedule</h2>
+    <h2 class="en active">Tour Schedule</h2>
+    <h2 class="fr">Calendrier de la tournée</h2>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>June 17–19</th>
-            <th>June 20–22</th>
-            <th>June 23–24</th>
-            <th>June 25–26</th>
+            <th>17–19 Juin</th>
+            <th>20–22 Juin</th>
+            <th>23–24 Juin</th>
+            <th>25–26 Juin</th>
           </tr>
         </thead>
         <tbody>
@@ -48,10 +80,29 @@
   </section>
 
   <section class="cta fade-in">
-    <h2>Free Meditation</h2>
-    <p>Visit <a href="https://wemeditate.com/fr/sahaja-yoga" target="_blank">wemeditate.com</a></p>
-    
+    <h2 class="en active">Free Meditation</h2>
+    <h2 class="fr">Méditation gratuite</h2>
+    <p class="en active">Visit <a href="https://wemeditate.com/fr/sahaja-yoga" target="_blank">wemeditate.com</a></p>
+    <p class="fr">Visitez <a href="https://wemeditate.com/fr/sahaja-yoga" target="_blank">wemeditate.com</a></p>
+    <img src="your-qrcode.png" alt="QR Code" class="qr" />
   </section>
+
+  <script>
+    let currentLang = 'en';
+    function toggleLang() {
+      const enElements = document.querySelectorAll('.en');
+      const frElements = document.querySelectorAll('.fr');
+      if (currentLang === 'en') {
+        enElements.forEach(el => el.classList.remove('active'));
+        frElements.forEach(el => el.classList.add('active'));
+        currentLang = 'fr';
+      } else {
+        frElements.forEach(el => el.classList.remove('active'));
+        enElements.forEach(el => el.classList.add('active'));
+        currentLang = 'en';
+      }
+    }
+  </script>
 
 </body>
 </html>
