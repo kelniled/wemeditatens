@@ -4,9 +4,19 @@ body {
     color: #fff;
     background-color: #0d1b2a;
   }
+  html {
+  scroll-behavior: smooth;
+}
+
   
   h1, h2 {
     text-align: center;
+    font-weight: 300;
+  }
+
+  h3 {
+    text-align: center;
+    color: #0b132b;
     font-weight: 300;
   }
   
@@ -56,6 +66,25 @@ body {
     font-style: italic;
     color: #ddd;
   }
+
+  .hero-dates {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  
+  .scroll-arrow {
+    font-size: 2rem;
+    animation: bounce 1.5s infinite;
+    margin-top: 1.5rem;
+    color: #fff;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  
   
   /* Info section */
   .info {
@@ -143,45 +172,61 @@ body {
 
   .city-details {
     background-color: #f4f9ff;
-    padding: 3rem 2rem;
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: auto;
   }
   
   .city-details h2 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: #14213d;
-  }
-  
-  .city-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .city-card {
-    background: #ffffff;
-    padding: 1.2rem 1.5rem;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .city-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .city-card h3 {
-    margin-top: 0;
     color: #003049;
   }
   
-  .city-card p {
-    margin: 0.5rem 0;
+  .accordion {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background: white;
+  }
+  
+  .accordion-header {
+    background-color: #e8f0ff;
+    color: #003049;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-content {
+    padding: 0 1rem 1rem;
+    display: none;
     font-size: 0.95rem;
-    color: #444;
+    color: #333;
+  }
+  
+  .accordion-content p {
+    margin: 0.5rem 0;
+  }
+  
+  .accordion.active .accordion-content {
+    display: block;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 10px;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    margin-left: 0.5rem;
   }
   
